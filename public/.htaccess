@@ -1,0 +1,3 @@
+# Activer le module de réécriture d'url
+RewriteEngine on
+
