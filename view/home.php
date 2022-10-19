@@ -10,9 +10,7 @@
 
 <body>
     <h1>Literie 3000</h1>
-    <?php
-    foreach ($data as $bed) {
-    ?>
+    <?php foreach ($data as $bed) : ?>
         <div class="bed">
         <img src="<?= $bed["image"] ?>" alt="">
             <p><?= $bed["name"] ?></p>
@@ -20,9 +18,7 @@
             <p><?= $bed["taille"] ?></p>
             <p><?= $bed["prix"] ?></p> 
         </div>
-    <?php
-    }
-    ?>
+    <?php endforeach ?>
 </body>
 
 </html>
