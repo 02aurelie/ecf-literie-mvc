@@ -1,0 +1,72 @@
+.image {
+    margin-left: 31rem;
+    margin-bottom: 4rem;
+}
+
+h1 {
+    margin-left: 35rem;
+    margin-bottom: 8rem;
+    text-decoration: underline;
+    font-weight: bold;
+    color: rgb(18, 18, 185);
+}
+
+.ajout {
+    text-align: end;
+}
+
+.bed-image {
+    margin-top: 2.5rem;
+    /* margin-left: 25rem; */
+    width: 500px;
+    
+}
+
+.bed-details {
+    color: rgb(32, 32, 133);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 2.5rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+
+.edit {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.delete {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.bottom {
+    color: rgb(32, 32, 133);
+    text-align: center;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 4rem;
+}
+
+.dimensions {
+    margin-top: 3rem;
+}
+
+.others-dimensions {
+    text-transform: none;
+}
+
+.marks {
+    margin-top: 3rem;
+}
+
+.others-marks {
+    text-transform: none;
+}

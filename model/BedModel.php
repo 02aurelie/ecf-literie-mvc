@@ -43,4 +43,33 @@ class BedModel extends Database {
             return $query->errorInfo();
         }
 	}
+
+	public function editBed($image, $name, $marque, $taille, $prix) {
+
+		$query = $this->bdd->prepare("SELECT * FROM beds WHERE id:id");
+
+        $query->execute();
+        $bed = $query->fetchAll();
+
+        return $bed;
+	}
+
+	public function updateBed() {
+		$query = $this->bdd->prepare("INSERT INTO beds (image, marque, name, taille, prix) VALUES (:image, :marque, :name, :taille, :prix)");
+        $query->bindParam(":id", $id);
+		
+		$query->bindParam(":image", $image);
+		$query->bindParam(":marque", $marque);
+		$query->bindParam(":name", $name);
+		$query->bindParam(":taille", $taille);
+		$query->bindParam(":prix", $prix);
+
+		
+		if ($query->execute()) {
+			return true;
+		}
+
+		return false;
+		
+	}
 }

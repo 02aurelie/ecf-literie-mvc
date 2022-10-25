@@ -1,9 +1,11 @@
 <?php
 require(DIR_MODEL . "BedModel.php");
 
-class BedController {
-    
-    public function __construct(public $model = null) {
+class BedController
+{
+
+    public function __construct(public $model = null)
+    {
         $this->model = new BedModel;
     }
 
@@ -18,19 +20,21 @@ class BedController {
 
     // Le nom des fonctions = le nom de l'url
     // ici : literie/create 
-    public function create() {
+    public function create()
+    {
 
         // On require la vue en fin de fonction pour afficher le HTML
         require(DIR_VIEW . '/create.php');
     }
 
-    public function store() {
+    public function store()
+    {
         // On recupere les données du formulaire
         $data = $_POST;
 
         // Il faut les traiter avant de les envoyer
         if (!empty($_POST)) {
-            $image =trim(strip_tags($_POST["image"]));
+            $image = trim(strip_tags($_POST["image"]));
             $name = trim(strip_tags($_POST["name"]));
             $marque = trim(strip_tags($_POST["marque"]));
             $taille = trim(strip_tags($_POST["taille"]));
@@ -48,15 +52,36 @@ class BedController {
         return;
     }
 
-    public function edit() {
-
+    public function edit()
+    {
+        // $id = $_GET['id'];
+        // $this->model->editBed($id);
+        require(DIR_VIEW . '/edit.php');
     }
 
-    public function update() {
-        $_POST;
+    public function update()
+    {
+        $data = $_POST;
+
+        if (!empty($_POST)) {
+            $image = trim(strip_tags($_POST["image"]));
+            $name = trim(strip_tags($_POST["name"]));
+            $marque = trim(strip_tags($_POST["marque"]));
+            $taille = trim(strip_tags($_POST["taille"]));
+            $prix = trim(strip_tags($_POST["prix"]));
+        } else {
+            header('Location: /edit');
+            return;
+        }
+
+        $this->model->saveBed($image, $name, $marque, $taille, $prix);
+
+        header('Location: /');
+        return;
     }
 
-    public function delete() {
+    public function delete()
+    {
         $id = $_GET['id'];
         $this->model->deleteBed($id);
 

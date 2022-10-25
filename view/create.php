@@ -11,13 +11,11 @@
 <body>
     <h1>Literie 3000</h1>
     <form action="/store">
-        Ajout du formulaire
     </form>
 </body>
 
 </html>
 
-body>
     <h2>Création de la fiche produit d'un matelas</h2>
 
     <form action="/store" method="POST">
