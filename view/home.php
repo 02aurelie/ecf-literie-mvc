@@ -17,6 +17,8 @@
             <p><?= $bed["marque"] ?></p>
             <p><?= $bed["taille"] ?></p>
             <p><?= $bed["prix"] ?></p> 
+            <a href="/edit?id=<?= $bed['id'] ?>">Editer</a>
+            <a href="/delete?id=<?= $bed['id'] ?>">Supprimer</a>
         </div>
     <?php endforeach ?>
     <!-- <form action="/store">

@@ -29,42 +29,38 @@ class BedController {
         $data = $_POST;
 
         // Il faut les traiter avant de les envoyer
+        if (!empty($_POST)) {
+            $image =trim(strip_tags($_POST["image"]));
+            $name = trim(strip_tags($_POST["name"]));
+            $marque = trim(strip_tags($_POST["marque"]));
+            $taille = trim(strip_tags($_POST["taille"]));
+            $prix = trim(strip_tags($_POST["prix"]));
+        } else {
+            header('Location: /create');
+            return;
+        }
 
         // Ici on appel notre model pour inserer les données en BDD
-        $this->model->saveBed($data);
+        $this->model->saveBed($image, $name, $marque, $taille, $prix);
 
         // Ici pas besoin d'afficher de vue mais il faut rediriger vers la page d'accueil par exmeple
         header('Location: /');
         return;
     }
-}
 
+    public function edit() {
 
+    }
 
+    public function update() {
+        $_POST;
+    }
 
-if (!empty($_POST)) {
-    $errors = [];
+    public function delete() {
+        $id = $_GET['id'];
+        $this->model->deleteBed($id);
 
-    $image =trim(strip_tags($_POST["image"]));
-    $name = trim(strip_tags($_POST["name"]));
-    $marque = trim(strip_tags($_POST["marque"]));
-    $taille = trim(strip_tags($_POST["taille"]));
-    $prix = trim(strip_tags($_POST["prix"]));
-
-    if (empty($errors)) {
-
-        $db = new PDO("mysql:host=localhost;dbname=literie3000", "root", "");
-       
-        $query = $db->prepare("INSERT INTO beds (image, marque, name, taille, prix) VALUES (:image, :marque, :name, :taille, :prix)");
-
-        $query->bindParam(":image", $image);
-        $query->bindParam(":marque", $marque);
-        $query->bindParam(":name", $name);
-        $query->bindParam(":taille", $taille);
-        $query->bindParam(":prix", $prix);
-
-        if ($query->execute()) {
-            header("Location: index.php");
-        }
+        header('Location: /');
+        return;
     }
 }
