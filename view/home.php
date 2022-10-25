@@ -32,7 +32,7 @@
                 <a href="/edit?id=<?= $bed['id'] ?>">Editer</a>
             </div>
             <div class="delete">
-                <a href="/delete?id=<?= $bed['id'] ?>">Supprimer</a>
+                <a href="/confirm_delete?id=<?= $bed['id'] ?>">Supprimer</a>
             </div>
         </div>
     <?php endforeach ?>

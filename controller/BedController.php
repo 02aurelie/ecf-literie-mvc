@@ -54,15 +54,15 @@ class BedController
 
     public function edit()
     {
-        // $id = $_GET['id'];
-        // $this->model->editBed($id);
+        $id = $_GET['id'];
+        $bed = $this->model->getBedById($id);
+        
         require(DIR_VIEW . '/edit.php');
     }
 
     public function update()
     {
-        $data = $_POST;
-
+        $id = $_GET['id'];
         if (!empty($_POST)) {
             $image = trim(strip_tags($_POST["image"]));
             $name = trim(strip_tags($_POST["name"]));
@@ -74,10 +74,15 @@ class BedController
             return;
         }
 
-        $this->model->saveBed($image, $name, $marque, $taille, $prix);
+        $this->model->updateBed($id, $image, $name, $marque, $taille, $prix);
 
         header('Location: /');
         return;
+    }
+
+    public function confirm_delete() {
+        $id = $_GET['id'];
+        require(DIR_VIEW . '/confirm.php');
     }
 
     public function delete()

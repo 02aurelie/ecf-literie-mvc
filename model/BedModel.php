@@ -10,10 +10,18 @@ class BedModel extends Database {
     public function getBeds() {
         $query = $this->bdd->prepare("SELECT * FROM beds");
         $query->execute();
-        $beds = $query->fetchAll();
+        $beds = $query->fetchAll(PDO::FETCH_ASSOC);
 
         return $beds;
     }
+
+	public function getBedById($id) {
+		$query = $this->bdd->prepare("SELECT * FROM beds where id = ?");
+        $query->execute([$id]);
+        $bed = $query->fetch(PDO::FETCH_ASSOC);
+
+        return $bed;
+	}
 
 	public function saveBed($image, $name, $marque, $taille, $prix) {
 		// On recupere dans $data les données du formulaire verifié par le controller
@@ -44,18 +52,8 @@ class BedModel extends Database {
         }
 	}
 
-	public function editBed($image, $name, $marque, $taille, $prix) {
-
-		$query = $this->bdd->prepare("SELECT * FROM beds WHERE id:id");
-
-        $query->execute();
-        $bed = $query->fetchAll();
-
-        return $bed;
-	}
-
-	public function updateBed() {
-		$query = $this->bdd->prepare("INSERT INTO beds (image, marque, name, taille, prix) VALUES (:image, :marque, :name, :taille, :prix)");
+	public function updateBed($id, $image, $name, $marque, $taille, $prix) {
+		$query = $this->bdd->prepare("UPDATE beds SET image = :image, marque = :marque, name = :name, taille = :taille, prix = :prix WHERE id = :id");
         $query->bindParam(":id", $id);
 		
 		$query->bindParam(":image", $image);
