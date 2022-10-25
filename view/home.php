@@ -19,6 +19,9 @@
             <p><?= $bed["prix"] ?></p> 
         </div>
     <?php endforeach ?>
+    <!-- <form action="/store">
+        Ajouter un matelas
+    </form> -->
 </body>
 
 </html>

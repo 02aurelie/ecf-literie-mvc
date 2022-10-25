@@ -16,3 +16,32 @@
 </body>
 
 </html>
+
+body>
+    <h2>Création de la fiche produit d'un matelas</h2>
+
+    <form action="" method="POST">
+    <div class="form-group">
+            <label for="inputImage">Image du matelas:</label>
+            <input type="" id="inputImage" name="image" value="<?= isset($image) ? $image : "" ?>">
+        </div>
+    <div class="form-group">
+            <label for="inputMarque">Marque du matelas:</label>
+            <input type="text" id="inputMarque" name="marque" value="<?= isset($marque) ? $marque : "" ?>">
+        </div>
+        <div class="form-group">
+            <label for="inputName">Nom du matelas:</label>
+            <input type="text" id="inputName" name="name" value="<?= isset($name) ? $name : "" ?>">
+</div>
+        <div class="form-group">
+            <label for="inputTaille">Taille :</label>
+            <input type="text" id="inputTaille" name="taille" value="<?= isset($taille) ? $taille : "" ?>">
+        </div>
+        <div class="form-group">
+            <label for="inputPrix">Prix :</label>
+            <input type="text" id="inputPrix" name="prix" value="<?= isset($prix) ? $prix : "" ?>">
+        </div>
+
+        <input type="submit" value="Création du matelas">
+    </form>
+</body>
